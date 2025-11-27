@@ -376,7 +376,7 @@ function initReservationForm() {
     
     const timeInput = document.getElementById('reservationTime');
     if (timeInput) {
-        timeInput.min = '12:00';
+        timeInput.min = '11:00';
         timeInput.max = '22:30';
     }
     
@@ -576,4 +576,5 @@ if ('connection' in navigator) {
         const heavyElements = document.querySelectorAll('.hero-bg, .lazy-bg');
         heavyElements.forEach(el => el.style.display = 'none');
     }
+
 }
