@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delish - Ресторан узбекской кухни</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <header>
+        <nav>
+            <div class="logo" onclick="scrollToSection('home')">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="Delish - Ресторан узбекской кухни" class="logo-image">
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Главная</a></li>
+                <li><a href="#menu" class="nav-link">Меню</a></li>
+                <li><a href="#about" class="nav-link">О нас</a></li>
+                <li><a href="#news" class="nav-link">Новости</a></li>
+                <li><a href="#gallery" class="nav-link">Галерея</a></li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="reserve-btn-nav" onclick="openReservationForm()">Забронировать</button>
+            </div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Главная страница -->
+    <section id="home" class="section active">
+        <div class="hero" style="background: url('images/фон.jpg') center/cover;">
+            <div class="hero-content">
+                <h1 class="hero-title" >Настоящий вкус <br>Узбекистана</h1>
+                <p class="hero-subtitle">Аутентичная узбекская кухня в сердце Санкт-Петербурга. Плов, манты, шашлык и другие восточные деликатесы</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="openReservationForm()">Забронировать стол</button>
+                    <button class="btn-secondary" onclick="scrollToSection('menu')">Посмотреть меню</button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">?</div>
+                    <div class="stat-label">лет опыта</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">позиций в меню</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3000+</div>
+                    <div class="stat-label">довольных гостей</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star fallback-icon"></i>
+                        </div>
+                        <h3>Аутентичная кухня</h3>
+                        <p>Все блюда готовятся по традиционным узбекским рецептам</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-fire-alt fallback-icon"></i>
+                        </div>
+                        <h3>Печь</h3>
+                        <p>Наш плов и лепешки готовятся в настоящей печи тандыр</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf fallback-icon"></i>
+                        </div>
+                        <h3>Свежие продукты</h3>
+                        <p>Используем только фермерские продукты и свежее мясо</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-music fallback-icon"></i>
+                        </div>
+                        <h3>Восточная атмосфера</h3>
+                        <p>Живая узбекская музыка и национальные танцы по выходным</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Меню -->
+    <section id="menu" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наше меню</h2>
+                <p>Ресторан Delish представляет аутентичную узбекскую кухню</p>
+            </div>
+
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="starters">Закуски</button>
+                <button class="category-btn" data-category="salads">Салаты</button>
+                <button class="category-btn" data-category="soups">Супы</button>
+                <button class="category-btn" data-category="mains">Горячие блюда</button>
+                <button class="category-btn" data-category="grill">Мангал</button>
+                <button class="category-btn" data-category="lemonades">Лимонады</button>
+                <button class="category-btn" data-category="teas">Чаи</button>
+                <button class="category-btn" data-category="drinks">Напитки</button>
+            </div>
+
+            <div class="menu-content">
+                <!-- Закуски -->
+                <div class="category-content active" id="starters">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Лепешка 0.5', '50 ₽', 'Традиционная узбекская лепешка', '200 г', 'images/закуски/лепешка0.5.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/лепешка0.5.webp" alt="Лепешка" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лепешка 0.5</h3>
+                                    <span class="price">50 ₽</span>
+                                </div>
+                                <p>Традиционная узбекская лепешка</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лепешка 1шт', '100 ₽', 'Традиционная узбекская лепешка', '400 г', 'images/закуски/лепешка0.5.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/лепешка0.5.webp" alt="Лепешка" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лепешка 1шт</h3>
+                                    <span class="price">100 ₽</span>
+                                </div>
+                                <p>Традиционная узбекская лепешка</p>
+                                <div class="menu-item-weight">400 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Мясное плато', '690 ₽', 'Ассорти из различных видов мяса', '300 г', 'images/закуски/плато.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/плато.webp" alt="Мясное плато" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Мясное плато</h3>
+                                    <span class="price">690 ₽</span>
+                                </div>
+                                <p>Ассорти из различных видов мяса</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Овощная тарелка', '480 ₽', 'Свежие сезонные овощи', '300 г', 'images/закуски/овощи.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/овощи.webp" alt="Овощная тарелка" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Овощная тарелка</h3>
+                                    <span class="price">480 ₽</span>
+                                </div>
+                                <p>Свежие сезонные овощи</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Рулетики из баклажанов с брынзой', '420 ₽', '4 шт. Нежные баклажаны с сыром', '200 г', 'images/закуски/рулетики.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/рулетики.webp" alt="Рулетики из баклажанов" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Рулетики из баклажанов с брынзой</h3>
+                                    <span class="price">420 ₽</span>
+                                </div>
+                                <p>4 шт. Нежные баклажаны с сыром</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Рыбное плато', '870 ₽', 'Ассорти из рыбных деликатесов', '300 г', 'images/закуски/рыба.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/рыба.webp" alt="Рыбное плато" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Рыбное плато</h3>
+                                    <span class="price">870 ₽</span>
+                                </div>
+                                <p>Ассорти из рыбных деликатесов</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Соленая тарелка микс', '380 ₽', 'Ассорти солений', '300 г', 'images/закуски/соленья.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/соленья.webp" alt="Соленая тарелка" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Соленая тарелка микс</h3>
+                                    <span class="price">380 ₽</span>
+                                </div>
+                                <p>Ассорти солений</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Сырная плато', '750 ₽', 'Ассорти сыров', '300 г', 'images/закуски/сыр.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/сыр.webp" alt="Сырная тарелка" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Сырная плато</h3>
+                                    <span class="price">750 ₽</span>
+                                </div>
+                                <p>Ассорти сыров</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Фруктовая тарелка', '580 ₽', 'Свежие сезонные фрукты', '600 г', 'images/закуски/фрукты.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/закуски/фрукты.webp" alt="Фруктовая тарелка" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Фруктовая тарелка</h3>
+                                    <span class="price">580 ₽</span>
+                                </div>
+                                <p>Свежие сезонные фрукты</p>
+                                <div class="menu-item-weight">600 г</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Салаты -->
+                <div class="category-content" id="salads">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Авторский салат от шеф-повара', '540 ₽', 'Фирменный салат от шефа', '200 г', 'images/салаты/авторский.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/авторский.webp" alt="Авторский салат" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Авторский салат от шеф-повара</h3>
+                                    <span class="price">540 ₽</span>
+                                </div>
+                                <p>Фирменный салат от шефа</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Греческий', '340 ₽', 'Классический греческий салат', '200 г', 'images/салаты/греческий.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/греческий.webp" alt="Греческий салат" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Греческий</h3>
+                                    <span class="price">340 ₽</span>
+                                </div>
+                                <p>Классический греческий салат</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лаззат с хрустящими баклажанами', '450 ₽', 'Салат с хрустящими баклажанами', '200 г', 'images/салаты/лаззат.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/лаззат.webp" alt="Лаззат" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лаззат с хрустящими баклажанами</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Салат с хрустящими баклажанами</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Оливье с курицей', '350 ₽', 'Классический салат оливье', '200 г', 'images/салаты/оливье.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/оливье.webp" alt="Оливье" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Оливье с курицей</h3>
+                                    <span class="price">350 ₽</span>
+                                </div>
+                                <p>Классический салат оливье</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Салат Мужской Каприз', '540 ₽', 'Сытный мясной салат', '200 г', 'images/салаты/каприз.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/каприз.webp" alt="Мужской каприз" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Салат "Мужской Каприз"</h3>
+                                    <span class="price">540 ₽</span>
+                                </div>
+                                <p>Сытный мясной салат</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Селедка под шубой', '450 ₽', 'Классическая селедка под шубой', '200 г', 'images/салаты/сельд.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/сельд.webp" alt="Селедка под шубой" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Селедка под шубой</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Классическая селедка под шубой</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Фирменный салат Delish', '490 ₽', 'Фирменный салат ресторана', '200 г', 'images/салаты/фирменный.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/фирменный.webp" alt="Фирменный салат" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Фирменный салат Delish</h3>
+                                    <span class="price">490 ₽</span>
+                                </div>
+                                <p>Фирменный салат ресторана</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Фитнес салат', '490 ₽', 'Легкий салат для правильного питания', '200 г', 'images/салаты/фитнес.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/фитнес.webp" alt="Фитнес салат" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Фитнес салат</h3>
+                                    <span class="price">490 ₽</span>
+                                </div>
+                                <p>Легкий салат для правильного питания</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Цезарь с курицей', '340 ₽', 'Классический салат цезарь', '200 г', 'images/салаты/цезарь.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/цезарь.webp" alt="Цезарь" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Цезарь с курицей</h3>
+                                    <span class="price">340 ₽</span>
+                                </div>
+                                <p>Классический салат цезарь</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Чобан салат', '380 ₽', 'Традиционный турецкий салат', '200 г', 'images/салаты/цезарь.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/салаты/цезарь.webp" alt="Чобан салат" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Чобан салат</h3>
+                                    <span class="price">380 ₽</span>
+                                </div>
+                                <p>Традиционный турецкий салат</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Супы -->
+                <div class="category-content" id="soups">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Балаза нухат', '450 ₽', 'Традиционный суп с нутом', '300 г', 'images/супы/нухат.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/супы/нухат.webp" alt="Балаза нухат" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Балаза нухат</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Традиционный суп с нутом</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Куринный суп', '300 ₽', 'Наваристый куриный суп', '300 г', 'images/супы/куринный суп.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/супы/куринный суп.webp" alt="Куринный суп" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Куринный суп</h3>
+                                    <span class="price">300 ₽</span>
+                                </div>
+                                <p>Наваристый куриный суп</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лагман', '450 ₽', 'Традиционный узбекский суп с лапшой', '300 г', 'images/супы/лагман.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/супы/лагман.webp" alt="Лагман" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лагман</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Традиционный узбекский суп с лапшой</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Мастава', '400 ₽', 'Рисовый суп с мясом и овощами', '300 г', 'images/супы/мастава.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/супы/мастава.webp" alt="Мастава" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Мастава</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Рисовый суп с мясом и овощами</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шурпа из баранины', '520 ₽', 'Наваристый суп с бараниной', '300 г', 'images/супы/шурпа.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/супы/шурпа.webp" alt="Шурпа" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шурпа из баранины</h3>
+                                    <span class="price">520 ₽</span>
+                                </div>
+                                <p>Наваристый суп с бараниной</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Горячие блюда -->
+                <div class="category-content" id="mains">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Дограма', '450 ₽', 'Традиционное блюдо', '300 г', 'images/горячие/Дограма.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/Дограма.webp" alt="Дограма" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Дограма</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Традиционное блюдо</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Долма с виноградными листьями', '550 ₽', 'Виноградные листья с мясной начинкой', '300 г', 'images/горячие/Долма.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/Долма.webp" alt="Долма" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Долма с виноградными листьями</h3>
+                                    <span class="price">550 ₽</span>
+                                </div>
+                                <p>Виноградные листья с мясной начинкой</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Жаренные пельмени', '490 ₽', 'Хрустящие жареные пельмени', '200 г', 'images/горячие/жареные пельмени.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/жареные пельмени.webp" alt="Жареные пельмени" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Жаренные пельмени</h3>
+                                    <span class="price">490 ₽</span>
+                                </div>
+                                <p>Хрустящие жареные пельмени</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Жареный лагман', '590 ₽', 'Лагман с мясом и овощами', '300 г', 'images/горячие/жареный лагман.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/жареный лагман.webp" alt="Жареный лагман" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Жареный лагман</h3>
+                                    <span class="price">590 ₽</span>
+                                </div>
+                                <p>Лагман с мясом и овощами</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Казан кебаб из баранины', '550 ₽', 'Мясо, приготовленное в казане', '250 г', 'images/горячие/казан кебаб баранина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/казан кебаб баранина.webp" alt="Казан кебаб" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Казан кебаб из баранины</h3>
+                                    <span class="price">550 ₽</span>
+                                </div>
+                                <p>Мясо, приготовленное в казане</p>
+                                <div class="menu-item-weight">250 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Казан кебаб из говядины', '500 ₽', 'Мясо, приготовленное в казане', '250 г', 'images/горячие/казан кебаб говядина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/казан кебаб говядина.webp" alt="Казан кебаб" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Казан кебаб из говядины</h3>
+                                    <span class="price">500 ₽</span>
+                                </div>
+                                <p>Мясо, приготовленное в казане</p>
+                                <div class="menu-item-weight">250 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Картошка по-деревенски', '160 ₽', 'Ароматная картошка с травами', '150 г', 'images/горячие/картошка по деревенски.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/картошка по деревенски.webp" alt="Картошка по-деревенски" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Картошка по-деревенски</h3>
+                                    <span class="price">160 ₽</span>
+                                </div>
+                                <p>Ароматная картошка с травами</p>
+                                <div class="menu-item-weight">150 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Картошка фри', '160 ₽', 'Хрустящая картошка фри', '150 г', 'images/горячие/картошка фри.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/картошка фри.webp" alt="Картошка фри" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Картошка фри</h3>
+                                    <span class="price">160 ₽</span>
+                                </div>
+                                <p>Хрустящая картошка фри</p>
+                                <div class="menu-item-weight">150 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Манты', '550 ₽', 'Традиционные узбекские манты', '300 г', 'images/горячие/манты.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/манты.webp" alt="Манты" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Манты</h3>
+                                    <span class="price">550 ₽</span>
+                                </div>
+                                <p>Традиционные узбекские манты</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Пельмени с мясом', '500 ₽', 'Домашние пельмени', '350 г', 'images/горячие/пельмени.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/пельмени.webp" alt="Пельмени" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Пельмени с мясом</h3>
+                                    <span class="price">500 ₽</span>
+                                </div>
+                                <p>Домашние пельмени</p>
+                                <div class="menu-item-weight">350 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Рыба жареная сазан 1кг', '1400 ₽', 'Свежий жареный сазан', '1000 г', 'images/горячие/сазан.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/сазан.webp" alt="Рыба сазан" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Рыба жареная сазан 1кг</h3>
+                                    <span class="price">1400 ₽</span>
+                                </div>
+                                <p>Свежий жареный сазан</p>
+                                <div class="menu-item-weight">1000 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Рыба жареная сазан 500гр', '750 ₽', 'Свежий жареный сазан', '500 г', 'images/горячие/жар сазан.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/жар сазан.webp" alt="Рыба сазан" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Рыба жареная сазан 500гр</h3>
+                                    <span class="price">750 ₽</span>
+                                </div>
+                                <p>Свежий жареный сазан</p>
+                                <div class="menu-item-weight">500 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Туркменские фитчи', '250 ₽', 'Традиционные лепешки', '180 г', 'images/горячие/туркменские фитчи.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/туркменские фитчи.webp" alt="Туркменские фитчи" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Туркменские фитчи</h3>
+                                    <span class="price">250 ₽</span>
+                                </div>
+                                <p>Традиционные лепешки</p>
+                                <div class="menu-item-weight">180 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Тухум барак с яйцом', '490 ₽', 'Традиционное блюдо с яйцом', '200 г', 'images/горячие/тухум.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/тухум.webp" alt="Тухум барак" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Тухум барак с яйцом</h3>
+                                    <span class="price">490 ₽</span>
+                                </div>
+                                <p>Традиционное блюдо с яйцом</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Чебурек с мясом', '250 ₽', 'Хрустящий чебурек с мясной начинкой', '150 г', 'images/горячие/чебурек мясо.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/чебурек мясо.webp" alt="Чебурек" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Чебурек с мясом</h3>
+                                    <span class="price">250 ₽</span>
+                                </div>
+                                <p>Хрустящий чебурек с мясной начинкой</p>
+                                <div class="menu-item-weight">150 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Чебурек с сыром и зеленью', '250 ₽', 'Чебурек с сыром и свежей зеленью', '140 г', 'images/горячие/чебурек сыр.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/чебурек сыр.webp" alt="Чебурек с сыром" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Чебурек с сыром и зеленью</h3>
+                                    <span class="price">250 ₽</span>
+                                </div>
+                                <p>Чебурек с сыром и свежей зеленью</p>
+                                <div class="menu-item-weight">140 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шур кебаб', '750 ₽', 'Традиционный мясной кебаб', '300 г', 'images/горячие/шур кебаб.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/горячие/шур кебаб.webp" alt="Шур кебаб" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шур кебаб</h3>
+                                    <span class="price">750 ₽</span>
+                                </div>
+                                <p>Традиционный мясной кебаб</p>
+                                <div class="menu-item-weight">300 г</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мангал -->
+                <div class="category-content" id="grill">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Люля кебаб из баранины', '550 ₽', 'Нежный кебаб из баранины', '200 г', 'images/мангал/Люля баранина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/Люля баранина.webp" alt="Люля кебаб из баранины" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Люля кебаб из баранины</h3>
+                                    <span class="price">550 ₽</span>
+                                </div>
+                                <p>Нежный кебаб из баранины</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Люля кебаб из говядины', '460 ₽', 'Сочный кебаб из говядины', '200 г', 'images/мангал/люля говядина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/люля говядина.webp" alt="Люля кебаб из говядины" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Люля кебаб из говядины</h3>
+                                    <span class="price">460 ₽</span>
+                                </div>
+                                <p>Сочный кебаб из говядины</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Овощи на мангале', '420 ₽', 'Сезонные овощи, приготовленные на углях', '290 г', 'images/мангал/Овощи мангал.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/Овощи мангал.webp" alt="Овощи на мангале" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Овощи на мангале</h3>
+                                    <span class="price">420 ₽</span>
+                                </div>
+                                <p>Сезонные овощи, приготовленные на углях</p>
+                                <div class="menu-item-weight">290 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из баранины', '550 ₽', 'Нежный шашлык из баранины', '200 г', 'images/мангал/шашлык баранина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/шашлык баранина.webp" alt="Шашлык из баранины" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из баранины</h3>
+                                    <span class="price">550 ₽</span>
+                                </div>
+                                <p>Нежный шашлык из баранины</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из баранины ребрышки', '690 ₽', 'Ароматные бараньи ребрышки', '250 г', 'images/мангал/шашлык ребра баранина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/шашлык ребра баранина.webp" alt="Шашлык из баранины ребрышки" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из баранины ребрышки</h3>
+                                    <span class="price">690 ₽</span>
+                                </div>
+                                <p>Ароматные бараньи ребрышки</p>
+                                <div class="menu-item-weight">250 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из говядины', '590 ₽', 'Сочный шашлык из говядины', '200 г', 'images/мангал/шашлык говядина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/шашлык говядина.webp" alt="Шашлык из говядины" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из говядины</h3>
+                                    <span class="price">590 ₽</span>
+                                </div>
+                                <p>Сочный шашлык из говядины</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из куриных крылышек', '490 ₽', 'Хрустящие куриные крылышки', '200 г', 'images/мангал/шашлык куриные крылышки.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/шашлык куриные крылышки.webp" alt="Шашлык из куриных крылышек" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из куриных крылышек</h3>
+                                    <span class="price">490 ₽</span>
+                                </div>
+                                <p>Хрустящие куриные крылышки</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из курицы', '450 ₽', 'Нежный куриный шашлык', '200 г', 'images/мангал/шашлык курица.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/шашлык курица.webp" alt="Шашлык из курицы" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из курицы</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Нежный куриный шашлык</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из печени', '540 ₽', 'Нежная печень на углях', '200 г', 'images/мангал/шашлык из печени.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/шашлык из печени.webp" alt="Шашлык из печени" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из печени</h3>
+                                    <span class="price">540 ₽</span>
+                                </div>
+                                <p>Нежная печень на углях</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из телятины', '690 ₽', 'Нежная телятина на углях', '200 г', 'images/мангал/шашлык из телятины.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/шашлык из телятины.webp" alt="Шашлык из телятины" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из телятины</h3>
+                                    <span class="price">690 ₽</span>
+                                </div>
+                                <p>Нежная телятина на углях</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык из шампиньонов', '350 ₽', 'Ароматные шампиньоны на углях', '200 г', 'images/мангал/Шашлык из шампиньонов.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/Шашлык из шампиньонов.webp" alt="Шашлык из шампиньонов" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык из шампиньонов</h3>
+                                    <span class="price">350 ₽</span>
+                                </div>
+                                <p>Ароматные шампиньоны на углях</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык наполеон', '750 ₽', 'Фирменный шашлык', '200 г', 'images/мангал/Шашлык наполеон.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/Шашлык наполеон.webp" alt="Шашлык наполеон" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык наполеон</h3>
+                                    <span class="price">750 ₽</span>
+                                </div>
+                                <p>Фирменный шашлык</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Шашлык-рулет из говядины', '780 ₽', 'Рулет из говядины на углях', '200 г', 'images/мангал/Шашлык рулет говядина.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/мангал/Шашлык рулет говядина.webp" alt="Шашлык-рулет из говядины" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Шашлык-рулет из говядины</h3>
+                                    <span class="price">780 ₽</span>
+                                </div>
+                                <p>Рулет из говядины на углях</p>
+                                <div class="menu-item-weight">200 г</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Лимонады -->
+                <div class="category-content" id="lemonades">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Delish роза грейпфрут', '400 ₽', 'Освежающий лимонад с розой и грейпфрутом', '1000 мл', 'images/Лимонады авторские/роза.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/Лимонады авторские/роза.webp" alt="Delish роза грейпфрут" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Delish роза грейпфрут</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Освежающий лимонад с розой и грейпфрутом</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лимонад домашний с мятой', '400 ₽', 'Классический лимонад со свежей мятой', '1000 мл', 'images/Лимонады авторские/мята.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/Лимонады авторские/мята.webp" alt="Лимонад домашний с мятой" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лимонад домашний с мятой</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Классический лимонад со свежей мятой</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лимонад клубника-лайм', '400 ₽', 'Фруктовый лимонад с клубникой и лаймом', '1000 мл', 'images/Лимонады авторские/клубника-лайм.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/Лимонады авторские/клубника-лайм.webp" alt="Лимонад клубника-лайм" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лимонад клубника-лайм</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Фруктовый лимонад с клубникой и лаймом</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лимонад мохито-киви', '400 ₽', 'Освежающий мохито с киви', '1000 мл', 'images/Лимонады авторские/мохито-киви.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/Лимонады авторские/мохито-киви.webp" alt="Лимонад мохито-киви" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лимонад мохито-киви</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Освежающий мохито с киви</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лимонад тропический микс', '400 ₽', 'Экзотический микс тропических фруктов', '1000 мл', 'images/Лимонады авторские/тропика.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/Лимонады авторские/тропика.webp" alt="Лимонад тропический микс" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лимонад тропический микс</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Экзотический микс тропических фруктов</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Огуречный фитнес', '400 ₽', 'Легкий огуречный лимонад', '1000 мл', 'images/Лимонады авторские/огуречный.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/Лимонады авторские/огуречный.webp" alt="Огуречный фитнес" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Огуречный фитнес</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Легкий огуречный лимонад</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Щавелевый', '400 ₽', 'Освежающий лимонад со щавелем', '1000 мл', 'images/Лимонады авторские/Щавельный.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/Лимонады авторские/Щавельный.webp" alt="Щавелевый" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Щавелевый</h3>
+                                    <span class="price">400 ₽</span>
+                                </div>
+                                <p>Освежающий лимонад со щавелем</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Чаи -->
+                <div class="category-content" id="teas">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Авторский чай delish зеленый', '450 ₽', 'Фирменный зеленый чай', '1000 мл', 'images/чаи авторские/авторский.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/авторский.webp" alt="Авторский чай delish зеленый" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Авторский чай delish зеленый</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Фирменный зеленый чай</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Авторский чай delish черный', '450 ₽', 'Фирменный черный чай', '1000 мл', 'images/чаи авторские/черый.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/черый.webp" alt="Авторский чай delish черный" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Авторский чай delish черный</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Фирменный черный чай</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Анчан с молоком', '450 ₽', 'Тайский синий чай с молоком', '1000 мл', 'images/чаи авторские/анчан с молоком.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/анчан с молоком.webp" alt="Анчан с молоком" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Анчан с молоком</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Тайский синий чай с молоком</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Жасмин Сенча', '450 ₽', 'Зеленый чай с жасмином', '1000 мл', 'images/чаи авторские/жасмин.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/жасмин.webp" alt="Жасмин Сенча" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Жасмин Сенча</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Зеленый чай с жасмином</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Лейли и Меджнун', '450 ₽', 'Романтический чайный микс', '1000 мл', 'images/чаи авторские/лейли.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/лейли.webp" alt="Лейли и Меджнун" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Лейли и Меджнун</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Романтический чайный микс</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Матча китайский', '450 ₽', 'Традиционный китайский матча', '1000 мл', 'images/чаи авторские/матча.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/матча.webp" alt="Матча китайский" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Матча китайский</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Традиционный китайский матча</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Облепихо-имбирный', '450 ₽', 'Витаминный чай с облепихой и имбирем', '1000 мл', 'images/чаи авторские/облепих-имб.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/облепих-имб.webp" alt="Облепихо-имбирный" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Облепихо-имбирный</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Витаминный чай с облепихой и имбирем</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Тропический', '450 ₽', 'Фруктовый чай с тропическими нотами', '1000 мл', 'images/чаи авторские/тропика.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/тропика.webp" alt="Тропический" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Тропический</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Фруктовый чай с тропическими нотами</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Турецкое яблоко', '450 ₽', 'Ароматный чай с яблоком', '1000 мл', 'images/чаи авторские/яблоко.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/яблоко.webp" alt="Турецкое яблоко" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Турецкое яблоко</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Ароматный чай с яблоком</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Чай Витаминный микс', '450 ₽', 'Витаминный травяной сбор', '1000 мл', 'images/чаи авторские/витаминный.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/витаминный.webp" alt="Чай Витаминный микс" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Чай Витаминный микс</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Витаминный травяной сбор</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Чай ананас-манго', '450 ₽', 'Экзотический чай с ананасом и манго', '1000 мл', 'images/чаи авторские/ананас-манго.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/ананас-манго.webp" alt="Чай ананас-манго" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Чай ананас-манго</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Экзотический чай с ананасом и манго</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Чай гранатовый', '450 ₽', 'Фруктовый чай с гранатом', '1000 мл', 'images/чаи авторские/гранат.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/гранат.webp" alt="Чай гранатовый" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Чай гранатовый</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Фруктовый чай с гранатом</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Чай малина вишня', '450 ₽', 'Ягодный чай с малиной и вишней', '1000 мл', 'images/чаи авторские/малина вишня.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/чаи авторские/малина вишня.webp" alt="Чай малина вишня" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Чай малина вишня</h3>
+                                    <span class="price">450 ₽</span>
+                                </div>
+                                <p>Ягодный чай с малиной и вишней</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Напитки -->
+                <div class="category-content" id="drinks">
+                    <div class="menu-items-grid">
+                        <div class="menu-item" onclick="openMenuItemModal('Кока-кола 0.5л', '190 ₽', 'Освежающий газированный напиток', '500 мл', 'images/напитки/кола5.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/кола5.webp" alt="Кока-кола 0.5л" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Кока-кола 0.5л</h3>
+                                    <span class="price">190 ₽</span>
+                                </div>
+                                <p>Освежающий газированный напиток</p>
+                                <div class="menu-item-weight">500 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Кока-кола 1л', '280 ₽', 'Освежающий газированный напиток', '1000 мл', 'images/напитки/кола1.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/кола1.webp" alt="Кока-кола 1л" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Кока-кола 1л</h3>
+                                    <span class="price">280 ₽</span>
+                                </div>
+                                <p>Освежающий газированный напиток</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Айран домашний 0.5л', '200 ₽', 'Традиционный кисломолочный напиток', '500 мл', 'images/напитки/айран5.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/айран5.webp" alt="Айран домашний 0.5л" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Айран домашний 0.5л</h3>
+                                    <span class="price">200 ₽</span>
+                                </div>
+                                <p>Традиционный кисломолочный напиток</p>
+                                <div class="menu-item-weight">500 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Айран домашний 1л', '350 ₽', 'Традиционный кисломолочный напиток', '1000 мл', 'images/напитки/айран1.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/айран1.webp" alt="Айран домашний 1л" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Айран домашний 1л</h3>
+                                    <span class="price">350 ₽</span>
+                                </div>
+                                <p>Традиционный кисломолочный напиток</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Сок в ассортименте 1л', '280 ₽', 'Натуральные соки на выбор', '1000 мл', 'images/напитки/сок.jpeg')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/сок.jpeg" alt="Сок в ассортименте 1л" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Сок в ассортименте 1л</h3>
+                                    <span class="price">280 ₽</span>
+                                </div>
+                                <p>Натуральные соки на выбор</p>
+                                <div class="menu-item-weight">1000 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Боржоми 0.5л', '250 ₽', 'Лечебно-столовая минеральная вода', '500 мл', 'images/напитки/боржоми.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/боржоми.webp" alt="Боржоми 0.5л" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Боржоми 0.5л</h3>
+                                    <span class="price">250 ₽</span>
+                                </div>
+                                <p>Лечебно-столовая минеральная вода</p>
+                                <div class="menu-item-weight">500 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Рычал-су 0.5л', '200 ₽', 'Минеральная вода', '500 мл', 'images/напитки/рычал.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/рычал.webp" alt="Рычал-су 0.5л" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Рычал-су 0.5л</h3>
+                                    <span class="price">200 ₽</span>
+                                </div>
+                                <p>Минеральная вода</p>
+                                <div class="menu-item-weight">500 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Энергетические напитки 0.2л', '200 ₽', 'Энергетические напитки в ассортименте', '200 мл', 'images/напитки/адреналин.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/адреналин.webp" alt="Энергетические напитки" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Энергетические напитки 0.2л</h3>
+                                    <span class="price">200 ₽</span>
+                                </div>
+                                <p>Энергетические напитки в ассортименте</p>
+                                <div class="menu-item-weight">200 мл</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onclick="openMenuItemModal('Вода без газа 0.5л', '150 ₽', 'Питьевая вода без газа', '500 мл', 'images/напитки/вода без газа.webp')">
+                            <div class="menu-item-image">
+                                <img src="images/напитки/вода без газа.webp" alt="Вода без газа" loading="lazy">
+                            </div>
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <h3>Вода без газа 0.5л</h3>
+                                    <span class="price">150 ₽</span>
+                                </div>
+                                <p>Питьевая вода без газа</p>
+                                <div class="menu-item-weight">500 мл</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>О ресторане</h2>
+                <p>Погрузитесь в атмосферу настоящего Узбекистана</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Наша философия</h3>
+                    <p>Delish — это не просто ресторан, это портал в солнечный Узбекистан. Мы сохраняем и передаем многовековые традиции узбекской кухни, где каждое блюдо — это история, а каждый ингредиент — часть культурного наследия.</p>
+                    
+                    <div class="philosophy-points">
+                        <div class="point">
+                            <h4>Аутентичность</h4>
+                            <p>Все блюда готовятся строго по традиционным рецептам, передаваемым из поколения в поколение</p>
+                        </div>
+                        <div class="point">
+                            <h4>Настоящий тандыр</h4>
+                            <p>Наш плов и лепешки готовятся в дровяной печи, что придает им неповторимый вкус и аромат</p>
+                        </div>
+                        <div class="point">
+                            <h4>Восточное гостеприимство</h4>
+                            <p>Мы встречаем гостей как дорогих друзей, создавая атмосферу настоящего восточного радушия</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <img src="images/Галерея/фон.webp" alt="Интерьер ресторана" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section id="news" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Новости</h2>
+                <p>Самые свежие события и акции ресторана</p>
+            </div>
+
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="image-placeholder">
+                            <img src="images/меню.jpg" alt="Новое сезонное меню" loading="lazy">
+                        </div>
+                        <div class="event-date">
+                            <span class="day">15</span>
+                            <span class="month">Дек</span>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Новое сезонное меню</h3>
+                        <p class="event-time">С 15 декабря</p>
+                        <p>Представляем новые блюда из осенних продуктов по специальным ценам</p>
+                        <button class="btn-outline" onclick="scrollToSection('menu')">Посмотреть меню</button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="image-placeholder">
+                            <img src="images/Самовывоз2.jpg" alt="Акция выходного дня" loading="lazy">
+                        </div>
+                        <div class="event-date">
+                            <span class="day">Ежедневно</span>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Скидка 10% за самовывоз</h3>
+                        <p class="event-time">Пт-Вс</p>
+                        <p>Забирайте заказы сами и получайте постоянную скидку! Быстро, удобно и выгодно.</p>
+                        <button class="btn-outline" onclick="scrollToSection('menu')">Посмотреть мею</button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="image-placeholder">
+                            <img src="images/живая музыка.jpg" alt="Вечера живой музыки" loading="lazy">
+                        </div>
+                        <div class="event-date">
+                            <span class="day">По</span>
+                            <span class="month">Субботам</span>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Вечера живой музыки</h3>
+                        <p class="event-time">19:00 - 23:00</p>
+                        <p>Каждую субботу наслаждайтесь живой узбекской музыкой в нашем ресторане</p>
+                        <button class="btn-outline" onclick="openReservationForm()">Забронировать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Галерея</h2>
+                <p>Атмосфера восточного гостеприимства</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-index="1">
+                    <div class="image-placeholder">
+                        <img src="images/Галерея/1.webp" alt="Интерьер ресторана" loading="lazy">
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <div class="image-placeholder">
+                        <img src="images/Галерея/2.webp" alt="Тандыр" loading="lazy">
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <div class="image-placeholder">
+                       <img src="images/Галерея/3.webp" alt="Восточный зал" loading="lazy">
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <div class="image-placeholder">
+                       <img src="images/Галерея/4.webp" alt="Приготовление плова" loading="lazy">
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <div class="image-placeholder">
+                        <img src="images/Галерея/5.webp" alt="Шашлык" loading="lazy">
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <div class="image-placeholder">
+                        <img src="images/Галерея/6.webp" alt="Самса" loading="lazy">
+                    </div>
+                </div>
+                    <div class="gallery-item" data-index="7">
+                        <div class="image-placeholder">
+                            <img src="images/Галерея/7.webp" alt="Чайная церемония" loading="lazy">
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="8">
+                    <div class="image-placeholder">
+                        <img src="images/Галерея/8.webp" alt="Восточные сладости" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Контакты -->
+<section id="contacts" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Контакты</h2>
+            <p>Мы всегда рады новым гостям</p>
+        </div>
+        
+        <div class="contacts-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Адрес</h3>
+                    <p>г. Санкт-Петербург, Садовая улица, д. 66</p>
+                    <p>Ближайшее метро: Сенная площадь (500 м)</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Телефоны</h3>
+                    <p>+7‒905‒214‒40‒60</p>
+                    <p>+7 (905) 214-40-60 (бронирование)</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Чт: 11:00 - 23:00</p>
+                    <p>Пт-Сб: 11:00 - 01:00</p>
+                    <p>Вс: 11:00 - 23:00</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Обратная связь</h3>
+                <form id="contactForm">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Телефон">
+                    <textarea placeholder="Сообщение" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <div id="map" style="width: 100%; height: 400px;"></div>
+        </div>
+    </div>
+</section>
+
+    <!-- Футер -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo" onclick="scrollToSection('home')">
+                    <div class="logo-icon">
+                        <img src="images/logo.png" alt="Delish - Ресторан узбекской кухни" class="logo-image">
+                    </div>
+                </div>
+                <p>Ресторан узбекской кухни в Санкт-Петербурге</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>+7 (905) 214-40-60</p>
+                <p>delish@....ru</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Часы работы</h4>
+                <p>Ежедневно с 11:00 до 23:00</p>
+                <p>Пт-Сб: до 01:00</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Delish. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Модальные окна -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content reservation-modal">
+            <span class="close" onclick="closeReservationForm()">&times;</span>
+            <div class="modal-header">
+                <h2>Бронирование столика</h2>
+                <p>Заполните форму ниже, и мы свяжемся с вами для подтверждения</p>
+            </div>
+            <form id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservationName">Имя *</label>
+                        <input type="text" id="reservationName" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservationPhone">Телефон *</label>
+                        <input type="tel" id="reservationPhone" placeholder="+7 (___)-___-__-__" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservationDate">Дата *</label>
+                        <input type="date" id="reservationDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservationTime">Время *</label>
+                        <input type="time" id="reservationTime" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reservationGuests">Количество гостей *</label>
+                    <select id="reservationGuests" required>
+                        <option value="">Выберите количество</option>
+                        <option value="1">1 гость</option>
+                        <option value="2">2 гостя</option>
+                        <option value="3">3 гостя</option>
+                        <option value="4">4 гостя</option>
+                        <option value="5">5 гостей</option>
+                        <option value="6">6 гостей</option>
+                        <option value="7">7+ гостей</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reservationNotes">Особые пожелания</label>
+                    <textarea id="reservationNotes" placeholder="Аллергии, особые случаи и т.д." rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-block">
+                    <i class="fas fa-calendar-check"></i>
+                    Забронировать стол
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Menu Item Modal -->
+    <div id="menuItemModal" class="modal">
+        <div class="modal-content menu-item-modal">
+            <span class="close" onclick="closeMenuItemModal()">&times;</span>
+            <div class="modal-body">
+                <div class="menu-item-modal-image">
+                    <img id="modalItemImage" src="" alt="">
+                </div>
+                <div class="menu-item-modal-content">
+                    <div class="menu-item-modal-header">
+                        <h2 id="modalItemTitle"></h2>
+                        <span class="price-large" id="modalItemPrice"></span>
+                    </div>
+                    <p class="menu-item-modal-description" id="modalItemDescription"></p>
+                    <div class="menu-item-modal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Вес:</span>
+                            <span class="detail-value" id="modalItemWeight"></span>
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-block" onclick="closeMenuItemModal()">
+                        <i class="fas fa-utensils"></i>
+                        Понятно
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="galleryModal" class="modal gallery-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGalleryModal()">&times;</span>
+            <div class="gallery-modal-content">
+                <div class="gallery-main-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="gallery-counter" id="galleryCounter">1 / 8</div>
+                <div class="gallery-controls">
+                    <button class="gallery-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="gallery-thumbnails">
+                    <!-- Thumbnails will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yandex Maps API -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ_api&lang=ru_RU" type="text/javascript"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
